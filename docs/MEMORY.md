@@ -29,13 +29,14 @@ Living file. AI assistants: read this at the start of every session and update i
   - **Target** (`Target`): Health, hit flash feedback, headshot damage multiplier (2x), destruction.
   - **Input Router** (`PlayerInputRouter`): Full abstraction combining PC (keyboard/mouse) and mobile touch inputs (`VirtualJoystick`, `TouchLookArea`, `HoldButton`).
   - **Mobile UI Builder** (`MobileUIBuilder`): Auto-builds touch controls layout under Canvas via `Tools > Build Mobile Controls`.
+  - **HUD Polish** (`SimpleHUD`): Dynamic crosshair (expands on movement/sprint, shrinks on crouch/prone, hides on scope ADS), bottom-left green-to-red health bar, ammo and death overlay.
 - Phase 2 Step 1 Done:
   - `WeaponData`: ScriptableObject data for AR, SMG, Sniper.
   - `WeaponHolder`: 3-slot weapon inventory with keys 1/2/3 and mouse wheel switching.
   - `CreateStarterWeapons`: Editor menu tool under `Tools > Create Starter Weapons`.
 - Research Done:
   - `docs/networking-plan.md`: Photon Fusion 2 Host Mode setup, limits, Bangalore ↔ Australia region routing (`asia`).
-- Next: In-editor verification of weapons & mobile controls, HUD crosshair/health bar, Phase 5 networking start.
+- Next: Option 1 (Hit markers & damage numbers over targets), then Option 3 (Photon Fusion setup).
 
 ## Open questions
 

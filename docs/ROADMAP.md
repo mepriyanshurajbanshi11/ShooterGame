@@ -21,7 +21,7 @@ Update this file and [MEMORY.md](MEMORY.md) when a task finishes. Follow the pha
 - [x] Gun: hitscan gun, ammo, reload, fire rate (`Gun`)
 - [x] Target: hit feedback, headshot bonus (2x), destruction (`Target`)
 - [x] Input router: unified PC + touch input (`PlayerInputRouter`)
-- [ ] Crosshair, ammo text, health bar HUD
+- [x] Crosshair, ammo text, health bar HUD (`SimpleHUD`: dynamic stance/move spread, green-to-red bar, scope hiding)
 - [ ] Hit marker and damage numbers (in-world floating text / UI)
 
 **Acceptance:** everything above works in editor Play mode with no console errors.
