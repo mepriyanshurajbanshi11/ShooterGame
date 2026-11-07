@@ -1,0 +1,37 @@
+# Unity generated
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emoryCaptures/
+
+# IDE and project files
+*.csproj
+*.sln
+*.slnx
+*.suo
+*.user
+*.pidb
+*.booproj
+.vs/
+.vscode/
+.idea/
+
+# Build outputs
+*.apk
+*.aab
+*.unitypackage
+*.app
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets (Photon App ID, Vivox keys, tokens)
+*.secret
+secrets.json
+LocalConfig.asset
+.env
