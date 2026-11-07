@@ -17,12 +17,19 @@ public class PlayerInputRouter : MonoBehaviour
     public bool SwitchCamera { get; private set; }
     public bool CrouchPressed { get; private set; }
     public bool PronePressed { get; private set; }
+    public int SwitchWeaponSlot { get; private set; } = -1;
 
     bool cursorLocked;
+    int activeWeaponSlot;
 
     void Start()
     {
         SetCursor(lockCursorOnPC && !Application.isMobilePlatform);
+    }
+
+    public void SetActiveWeaponSlot(int slot)
+    {
+        activeWeaponSlot = Mathf.Clamp(slot, 0, 2);
     }
 
     void SetCursor(bool locked)
@@ -67,6 +74,52 @@ public class PlayerInputRouter : MonoBehaviour
         CrouchPressed = MobileInput.CrouchPressed
             || (!mobile && (Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.LeftControl)));
         PronePressed = MobileInput.PronePressed || (!mobile && Input.GetKeyDown(KeyCode.Z));
+
+        // Evaluate weapon switch requests, defaulting to -1 when no switch action is invoked this frame
+        int switchSlot = -1;
+        if (mobile)
+        {
+            if (MobileInput.SwitchWeaponSlot >= 0)
+            {
+                switchSlot = MobileInput.SwitchWeaponSlot;
+            }
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))
+            {
+                switchSlot = 0;
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))
+            {
+                switchSlot = 1;
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3))
+            {
+                switchSlot = 2;
+            }
+            else
+            {
+                float scroll = Input.GetAxis("Mouse ScrollWheel");
+                if (scroll > 0.001f)
+                {
+                    // Scroll wheel up rotates forward through available slots
+                    switchSlot = (activeWeaponSlot + 1) % 3;
+                }
+                else if (scroll < -0.001f)
+                {
+                    // Scroll wheel down rotates backward through available slots
+                    switchSlot = (activeWeaponSlot - 1 + 3) % 3;
+                }
+            }
+        }
+
+        if (switchSlot >= 0)
+        {
+            activeWeaponSlot = switchSlot;
+        }
+
+        SwitchWeaponSlot = switchSlot;
     }
 
     void LateUpdate()

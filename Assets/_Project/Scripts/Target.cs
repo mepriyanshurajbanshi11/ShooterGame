@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Target : MonoBehaviour
+public class Target : MonoBehaviour, IDamageable
 {
     public float health = 100f;
     Renderer rend;
@@ -12,11 +12,10 @@ public class Target : MonoBehaviour
         baseColor = rend.material.color;
     }
 
-    public void Hit(float dmg, float mult)
+    public void TakeDamage(float amount)
     {
-        float total = dmg * mult;
-        health -= total;
-        Debug.Log((mult > 1f ? "HEADSHOT " : "Body hit ") + total + " damage, health left: " + health);
+        health -= amount;
+        Debug.Log("Target hit for " + amount + ", health left: " + health);
         rend.material.color = Color.red;
         Invoke(nameof(ResetColor), 0.1f);
         if (health <= 0) Destroy(gameObject);

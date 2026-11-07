@@ -6,11 +6,13 @@ public static class MobileInput
     public static bool Fire, Aim;
     public static bool JumpPressed, ReloadPressed, CameraPressed;
     public static bool CrouchPressed, PronePressed;
+    public static int SwitchWeaponSlot = -1;
 
     public static void ClearOneShots()
     {
         Look = Vector2.zero;
         JumpPressed = ReloadPressed = CameraPressed = false;
         CrouchPressed = PronePressed = false;
+        SwitchWeaponSlot = -1;
     }
 }

@@ -1,10 +1,10 @@
-# Roadmap
+# Phases & Roadmap
 
 Status key: `[x]` done, `[~]` in progress, `[ ]` not started.
 
 Update this file and [MEMORY.md](MEMORY.md) when a task finishes. Follow the phases in order.
 
-## Phase 0: Setup
+## Phase 0: Setup `[x]`
 
 - [x] Install Unity Hub, Unity 6 LTS, Android module
 - [x] Create project `ShooterGame` (Universal 3D)
@@ -26,12 +26,12 @@ Update this file and [MEMORY.md](MEMORY.md) when a task finishes. Follow the pha
 
 **Acceptance:** everything above works in editor Play mode with no console errors.
 
-## Phase 2: Weapons and combat feel
+## Phase 2: Weapons and combat feel `[~]`
 
-- [ ] `WeaponData` ScriptableObject, weapon slots, weapon switch
-- [ ] Guns: AR, SMG, sniper, shotgun, pistol
+- [x] `WeaponData` ScriptableObject, weapon slots, weapon switch (`WeaponHolder`)
+- [~] Guns: AR, SMG, sniper (starter weapons generated), shotgun, pistol
 - [ ] Recoil pattern and spread, muzzle flash, sound
-- [ ] Scope types: red dot, 2x, 4x, 8x, sniper (smooth zoom)
+- [x] Scope types per weapon (red dot 50, 2x 30, 4x 15, 8x 8)
 - [ ] Grenade, medkit, armor
 - [ ] Player health, death, respawn
 
@@ -40,7 +40,8 @@ Update this file and [MEMORY.md](MEMORY.md) when a task finishes. Follow the pha
 ## Phase 3: Mobile input `[~]`
 
 - [x] `PlayerInputRouter` abstraction
-- [x] On-screen joystick, look area, fire, aim, jump, reload, TPP/FPP (`VirtualJoystick`, `TouchLookArea`, `MobileInput`)
+- [x] On-screen joystick, look area, fire, aim, jump, reload, crouch, prone, TPP/FPP (`VirtualJoystick`, `TouchLookArea`, `HoldButton`)
+- [x] Touch UI auto-builder tool (`MobileUIBuilder` under `Tools > Build Mobile Controls`)
 - [ ] Android build runs, controls usable on a real phone
 - [ ] Quality presets (Low / Medium / High)
 
@@ -55,8 +56,9 @@ Update this file and [MEMORY.md](MEMORY.md) when a task finishes. Follow the pha
 
 **Acceptance:** each map is playable solo with bots or targets.
 
-## Phase 5: Multiplayer core
+## Phase 5: Multiplayer core `[~]`
 
+- [x] Networking research & architecture plan completed (`docs/networking-plan.md`)
 - [ ] Photon Fusion installed, App ID set (local config, not committed)
 - [ ] Host / join with session name (room code)
 - [ ] Networked player, movement prediction, camera only for local player
@@ -97,3 +99,4 @@ Update this file and [MEMORY.md](MEMORY.md) when a task finishes. Follow the pha
 - [ ] Reconnect handling, report and mute
 - [ ] Decide: dedicated server for strangers
 - [ ] Play Store (one-time fee) or share APK / itch.io
+
