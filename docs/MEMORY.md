@@ -22,21 +22,23 @@ Living file. AI assistants: read this at the start of every session and update i
 ## Current status
 
 - Phase 0 complete: Git initialized, remote connected to GitHub, project folder structure scaffolded.
-- Phase 1 & 3 Core Gameplay Done:
+- Phase 1 (Solo Prototype) 100% Complete:
   - **Movement** (`PlayerController`): Move, sprint, jump, ground check, unified input handling.
   - **Camera** (`CameraSwitch`): TPP/FPP toggle (`V`), scope zoom (ADS), body model toggle.
-  - **Gun** (`Gun`): Hitscan raycast from camera pivot, fire rate, ammo & reload, headshot calculation, data-driven via `WeaponData`.
-  - **Target** (`Target`): Health, hit flash feedback, headshot damage multiplier (2x), destruction.
+  - **Gun** (`Gun`): Hitscan raycast from camera pivot, fire rate, ammo & reload, headshot calculation, data-driven via `WeaponData`, optional hit/headshot audio hooks.
+  - **Target** (`Target`): Health, hit flash feedback, headshot damage multiplier (2x), destruction with auto-respawn.
   - **Input Router** (`PlayerInputRouter`): Full abstraction combining PC (keyboard/mouse) and mobile touch inputs (`VirtualJoystick`, `TouchLookArea`, `HoldButton`).
-  - **Mobile UI Builder** (`MobileUIBuilder`): Auto-builds touch controls layout under Canvas via `Tools > Build Mobile Controls`.
   - **HUD Polish** (`SimpleHUD`): Dynamic crosshair (expands on movement/sprint, shrinks on crouch/prone, hides on scope ADS), bottom-left green-to-red health bar, ammo and death overlay.
+  - **Combat Feedback** (`CombatEvents`, `HitMarkerUI`, `DamageNumberManager`): Screen-center X hit marker (red and enlarged on headshot/kill, fades in 0.2s), pre-allocated pooled 3D floating damage numbers (white for body, yellow for headshot).
 - Phase 2 Step 1 Done:
   - `WeaponData`: ScriptableObject data for AR, SMG, Sniper.
   - `WeaponHolder`: 3-slot weapon inventory with keys 1/2/3 and mouse wheel switching.
   - `CreateStarterWeapons`: Editor menu tool under `Tools > Create Starter Weapons`.
+- Phase 3 Touch Controls Done:
+  - `MobileUIBuilder`: Auto-builds touch controls layout under Canvas via `Tools > Build Mobile Controls`.
 - Research Done:
   - `docs/networking-plan.md`: Photon Fusion 2 Host Mode setup, limits, Bangalore ↔ Australia region routing (`asia`).
-- Next: Option 1 (Hit markers & damage numbers over targets), then Option 3 (Photon Fusion setup).
+- Next: Option 3 (Begin Phase 5 Photon Fusion 2 installation and multiplayer setup).
 
 ## Open questions
 

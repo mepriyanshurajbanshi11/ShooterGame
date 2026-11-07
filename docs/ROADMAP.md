@@ -11,7 +11,7 @@ Update this file and [MEMORY.md](MEMORY.md) when a task finishes. Follow the pha
 - [x] Git repo and `.gitignore`
 - [x] Folder structure from [ARCHITECTURE.md](ARCHITECTURE.md#2-folder-structure)
 
-## Phase 1: Solo prototype `[~]`
+## Phase 1: Solo prototype `[x]`
 
 **Goal:** one player can move, look, switch camera, and shoot a target.
 
@@ -22,7 +22,7 @@ Update this file and [MEMORY.md](MEMORY.md) when a task finishes. Follow the pha
 - [x] Target: hit feedback, headshot bonus (2x), destruction (`Target`)
 - [x] Input router: unified PC + touch input (`PlayerInputRouter`)
 - [x] Crosshair, ammo text, health bar HUD (`SimpleHUD`: dynamic stance/move spread, green-to-red bar, scope hiding)
-- [ ] Hit marker and damage numbers (in-world floating text / UI)
+- [x] Hit marker and damage numbers (`HitMarkerUI` center X, `DamageNumberManager` pooled 3D floating text, `CombatEvents` decoupled event bus)
 
 **Acceptance:** everything above works in editor Play mode with no console errors.
 
